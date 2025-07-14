@@ -1,9 +1,12 @@
 import {
     defineConfig,
     createSystem,
-    defineRecipe,
     defaultConfig,
 } from '@chakra-ui/react'
+
+import { headingRecipe } from './recipes/heading.resipe'
+import { inputRecipe } from './recipes/input.resipe'
+import { checkboxCardSlotRecipe } from './recipes/checkbox-card.resipe'
 
 const config = defineConfig({
     cssVarsRoot: ':where(:root, :host)',
@@ -13,26 +16,23 @@ const config = defineConfig({
                 todo: {
                     background: { value: '#f5f5f5' },
                     card: { value: '#fefefe' },
+                    header: { value: '#e9dad9' },
                     text: { value: '#555555' },
-                    doneText: { value: '#dddddd' },
+                    placeholder: { value: '#e6e6e6' },
+                    doneTask: { value: '#dddddd' },
                 },
             },
             fonts: {
-                body: { value: `'Helvetica Neue', Helvetica, Arial, sans-serif` },
+                heading: { value: `'Certia', sans-serif` },
+                placeholder: { value: `'Celesta', sans-serif` },
+                body: { value: `'Matangi', sans-serif` },
             },
+        },
+        slotRecipes: {
+            checkboxCard: checkboxCardSlotRecipe,
         },
     },
 })
-
-const headingRecipe = defineRecipe({
-    className: 'todo-heading',
-    base: {
-        fontWeight: "extralight",
-        textAlign: "center",
-        color: '#e9dad9',
-    },
-})
-
 
 const system = createSystem(defaultConfig,
     {
@@ -41,9 +41,10 @@ const system = createSystem(defaultConfig,
             ...config.theme,
             recipes: {
                 heading: headingRecipe,
+                input: inputRecipe,
             },
 
         }
     })
 
-export {system}
+export { system }

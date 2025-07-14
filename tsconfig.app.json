@@ -10,6 +10,7 @@
     ],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
@@ -17,7 +18,10 @@
       "@ui/*": ["./src/components/ui/*"],
       "@assets/*": ["./src/assets/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@store/*": ["./src/store/*"],
+      "@features/*": ["./src/features/*"],
     },
+    
     /* Bundler mode */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
@@ -25,6 +29,7 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
